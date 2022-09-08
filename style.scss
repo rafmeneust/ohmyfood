@@ -1,14 +1,37 @@
+
 /* Main */
 
-*{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    max-height: 100vh;
+* {
+    font-family: "Roboto", Helvetica Neue sans-serif;
+    max-height: 200vh;
+    list-style: none;
+    text-decoration: none;
 }
+
+a,
+.card {
+    cursor: pointer;
+}
+
+
+/* Functions */
+
+
+
+/* Breakpoints */
+
+@media screen and (min-width: 468px) {
+    body {
+        max-width: 499px;
+        margin: auto;
+    }
+}
+
 
 /* Color */
 
 $darker: #000000;
-$dark: #353535;
+$dark: #3c3c3c;
 $medium: #888;
 
 $light: #fff;
@@ -16,11 +39,17 @@ $light-grey: #F6F6F6;
 $grey: #eaeaea;
 
 $primary: #9356DC;
+$primary-light: rgb(147, 86, 220, .2);
 $secondary: #FF79DA;
 $third: #99E2D0;
 
+$gradient: linear-gradient(350deg, $primary 7%, $secondary 100%);
+$gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);
+
 
 /* Mixin */
+
+
 
 @mixin flex {
     display: flex;
@@ -56,252 +85,498 @@ $third: #99E2D0;
     padding: 0px 18px;
 }
 
+@mixin spacing-xsmall {
+    margin-top: 4px;
+    margin-bottom: 3px;
+}
+
 @mixin radius-xsmall {
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 @mixin radius-small {
-    border-radius: 2rem;
+    border-radius: 16px;
 }
 
 @mixin radius-large {
     border-radius: 5rem;
 }
 
-@mixin small{
-    font-size: 240%;
+@mixin header-spacing {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+@mixin light {
+    font-size: 110%;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+@mixin small {
+    font-size: 100%;
     font-weight: 500;
 }
 
-@mixin regular{
-    font-size: 40px;
+@mixin regular {
+    font-size: 100%;
     font-weight: 500;
 }
 
-@mixin bold{
-    font-size: 44px;
+@mixin bold {
+    font-size: 120%;
     font-weight: 600;
 }
 
-@mixin medium{
-    font-size: 44px;
+@mixin medium {
+    font-size: 115%;
     font-weight: 300;
 }
 
 @mixin title {
-    margin-right: 22px;
-    margin-left: 22px;
-    font-size: 62px;
-    font-weight: 600;
-    line-height: 100%;
+    margin-right: 18px;
+    margin-left: 18px;
+    font-size: 130%;
 }
+
+@mixin color-btn ($colour: lightness-shift($gradient)) {
+    background-color: $gradient;
+}
+
 
 .image-bg1 {
     background: url("assets/img/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
 }
+
 .image-bg2 {
     background: url("assets/img/stil-u2Lp8tXIcjw-unsplash.jpg");
 }
+
 .image-bg3 {
     background: url("assets/img/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+
+.image-bg4 {
+    background: url("assets/img/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
 }
 
 
 
 /* Class */
 
-h1, h2{
+h2, h3, h4:visited{
+    color: $darker;
+}
+
+h1,
+h2 {
     @include title;
 }
 
-h3{
+h3, h5 {
     @include regular;
 }
-
-
 
 
 @font-face {
     font-family: "Roboto" helvetica serif;
 }
 
-.logo{
+@font-face {
+    font-family: Shrikhand sans-serif;
+    src: url("assets/font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"),
+        url("assets/font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
+}
+
+body {
+    margin: auto;
+    background-color: $light-grey;
+}
+
+.spacer {
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+
+.spacer-s {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.spacer-l {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.logo {
     @include flex;
-    .logo--img{
-        max-width: 380px;
-        margin-top: 5%;
-        margin-bottom: 3%;
+
+    .logo--img {
+        @include header-spacing;
+        max-width: 220px;
     }
 }
 
-.locator{
+.locator {
     @include flex;
     @include small;
     background-color: $grey;
-    .margin-icon{
-    @include spacing-icon;
+
+    .margin-icon {
+        @include spacing-icon;
     }
 }
 
-.wrapper{
+.wrapper {
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 6%;
     padding-bottom: 3%;
+    background-color: $light;
 }
 
-.hero{
+.light-grey {
+    background-color: $light-grey;
+}
+
+.hero {
     @include flex;
     padding: 5% 10%;
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
     flex-direction: column;
     text-align: center;
     background-color: $light-grey;
 
-    .hero-title {
+    .hero--title {
         @include title;
     }
-    .hero-subtitle{
+
+    .hero--subtitle {
         @include medium;
         color: $medium;
-        margin-top: -3rem;
-        margin-bottom: 3rem;
-    }
-    .btn-hero{
-        @include regular; @include radius-large;
-        padding: 8px 72px;
-        background: linear-gradient(350deg, $primary 7%, $secondary 100%);
-        color: $light;
-        }
+        margin-top: -1rem;
+        margin-bottom: 1rem
     }
 
-.onboarding{
+    .btn--hero {
+        @include regular;
+        @include radius-large;
+        @include color-btn;
+        padding: 4px 28px;
+        background: $gradient;
+        color: $light;
+        box-shadow: 0px 5px 16px rgba(0, 0, 0, .2);
+    }
+
+    .btn--hero:hover {
+        background: $gradient-light;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
+    }
+
+    .btn--hero__alt {
+        @include regular;
+        @include radius-large;
+        @include color-btn;
+        padding: 4px 48px;
+        background: $gradient;
+        color: $light;
+        box-shadow: 0px 5px 16px rgba(0, 0, 0, .2);
+    }
+}
+
+.onboarding {
     @include flex-start;
     padding: 3% 3%;
     flex-direction: column;
     max-width: 100% auto;
     background-color: $light;
-    justify-content:space-between;
+    justify-content: space-between;
 
-    .onboarding--title{
+    .onboarding--title {
         align-items: flex-start;
         justify-content: flex-start;
     }
-    .onboarding--card{
-        @include flex-start; @include radius-small;
-        flex-direction: row;
-        box-shadow: 0px 8px 26px 0px rgba(0, 0, 0, 0.2);
+
+    .onboarding--card {
+        @include flex-start;
+        @include radius-small;
+        box-shadow: 0px 8px 26px 0px rgb(0 0 0 / 10%);
         width: 100%;
-        min-height: 180px;
-        margin-bottom: 6%;
+        min-height: 80px;
+        margin-bottom: 4%;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 14%);
+            background-color: $primary-light;
+        }
     }
 
-    .onboarding--number{
+    .onboarding--number {
         @include regular;
         @include flex;
         background-color: $primary;
         color: $light;
         border-radius: 100%;
-        margin-right: 32px;
-        width: 64px;
-        height: 64px;
+        margin-right: 22px;
+        width: 33px;
+        height: 30px;
         position: relative;
-        left: -30px;
+        left: -13px;
     }
 
-    .onboarding--icon{
-        font-size: 48px;
-        padding-right: 8%;
-        opacity: .5;
+    .onboarding--icon {
+        font-size: 20px;
+        padding-right: 6%;
+        opacity: .8;
     }
 
-    .onboarding--text{
+    .onboarding--text {
         @include regular;
     }
 }
 
-.card{
-    @include flex-between; @include radius-small;
+.card {
+    @include flex-between;
+    @include radius-small;
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
     position: relative;
-    min-height: 520px;
-    margin-right:3%;
-    margin-left: 3%;
-    margin-top: 3%;
-    margin-bottom: 6%;
-    .card--object{
+    min-height: 240px;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.20);
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .card--object {
         justify-content: flex-start;
         align-items: flex-end;
-        border-radius: 0rem 0rem 4rem 4rem;
-        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+        background-color: $light;
+        border-radius: 0rem 0rem 1rem 1rem;
     }
-    .card--state{
+
+    .card--state {
         @include radius-xsmall;
         background-color: $third;
         align-items: center;
         justify-content: center;
         align-self: self-end;
-        width: 20%;
+        width: 25%;
         margin-top: 4%;
         margin-right: 4%;
-        padding-left: 3%;
-    }
-    .card--state > p{
-        font-size: 220%;
-        font-weight: 600;
-        color:#008766;
     }
 
-    .card--info{
+    .card--state>p {
+        @include small;
+        text-align: center;
+        color: #008766;
+
+        &:hover {
+            font-weight: 700;
+        }
+    }
+
+    .card--info {
         flex-direction: row;
-        background-color: $light;
-        padding-top: 4%;
-        padding-bottom: 4%;
-        padding-left: 4%;
-        padding-right: 4%;
-        .card--info__title{
+        padding-top: 6%;
+        padding-bottom: 2%;
+        padding-left: 6%;
+
+        .card--info__title {
             @include bold;
             justify-content: flex-start;
             margin: 0
         }
-        .card--info__city{
-            padding-top: 12px;
-            font-size: 260%;
+
+        .card--info__city {
+            padding-top: 4px;
+            font-size: 110%;
             font-weight: 300;
-            letter-spacing: 1px;
             margin: 0;
         }
-        .card--info__icon{
+
+        .card--info__icon {
             @include flex-end;
-            position: absolute;
-            top: 400px;
-            right: 100px;
-            font-size: 280%;
+            font-size: 100%;
+            position: relative;
+            bottom: 30px;
+            right: 65px;
         }
     }
 }
-footer{
+
+footer {
     background-color: $dark;
     color: $light-grey;
-    .footer--infos{
-        padding: 5%
+    padding: 4%;
+
+    .footer--logo {
+        max-width: 120px;
     }
-    .footer--logo{
-        @include inline-flex;
-        padding-top: 4%;
-        padding-left: 30%;
-        padding-right: 30%;
+
+    .footer--infos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: -2rem;
     }
-    .footer--infos--icon{
-        font-size: 200%;
-        padding-right: 4%;
+
+    .footer--infos>li {
+        @include flex;
+        font-size: 100%;
+        max-height: 28px;
     }
-    .footer--infos--link{
+
+    .footer--infos>li>h3:hover {
+        font-size: 107%;
+    }
+
+    .footer--infos__icon {
+        padding-right: 18px;
     }
 }
 
 
+/* Page Restaurant 1 */
 
+.header-alt {
+    @include flex;
+    flex-direction: column;
+
+    .header-alt--inline {
+        @include flex;
+        flex-direction: row;
+    }
+
+    .header-alt--inline__icon {
+        position: absolute;
+        left: 10%;
+    }
+
+    .header-alt--inline__logo {
+        @include header-spacing;
+        max-width: 190px;
+    }
+
+    .header-alt--img {
+        position: relative;
+        height: 40vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .header-alt--inline__img {
+        z-index: -1;
+        margin-bottom: -3rem;
+        border-radius: 16px;
+    }
+}
+
+
+/*  Entrées  */
+
+section {
+    margin: 0;
+    background-color: $light-grey;
+
+    .section--title {
+        margin-top: 12px;
+    }
+
+    .section--title__alt {
+        font-family: Shrikhand sans-serif;
+        font-size: 160%;
+    }
+
+    .section--title__light {
+        @include light;
+        margin: 0;
+        border-bottom: solid 3px $third;
+        padding-bottom: 6px;
+        width: 7%;
+    }
+
+    .section--title__subtitle {
+        margin: 0;
+        font-weight: 300;
+        color: $dark;
+        padding-bottom: 18px;
+        line-height: 16px;
+    }
+
+    .section--title__subtitle>p {
+        margin: 0;
+        padding: 0;
+        font-size: 85%;
+        overflow: hidden;
+        max-width: 90%;
+        font-weight: 300;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .section--restaurant-title {
+        @include flex-between;
+        z-index: 6;
+        align-items: center;
+        border-radius: 16px;
+        padding-top: 6px;
+        width: 100%;
+    }
+
+    .section--icon {
+        margin-top: 12px;
+        padding-right: 12%;
+    }
+
+    .section--item {
+        @include flex-between;
+        flex-direction: column;
+
+        .section--item__card {
+            @include flex-start;
+            @include radius-xsmall;
+            @include spacing-xsmall;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-top: 8px;
+            box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+            background-color: $light;
+        }
+
+        .section--item__info {
+            margin: 0;
+            width: 80%;
+            padding-left: 18px;
+        }
+
+        .section--item__info>h3 {
+            font-size: 100%;
+            margin: 0;
+            padding-bottom: 6px;
+            padding-top: 18px;
+        }
+
+        .section--item__price {
+            align-self: flex-end;
+            justify-content: end;
+            padding-right: 22px;
+            display: flex;
+            width: 20%;
+        }
+
+        .section--item__price>p {
+            font-weight: 500;
+            font-size: 80%;
+        }
+    }
+}
