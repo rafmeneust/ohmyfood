@@ -1,0 +1,18 @@
+$darker: #000000;
+$dark: #3c3c3c;
+$medium: #888;
+
+$light: #fff;
+$light-grey: #F6F6F6;
+$grey: #eaeaea;
+
+$primary: #9356DC;
+$primary-light: rgb(147, 86, 220, .2);
+$primary-shift: lightness-shift($primary);
+$secondary: #FF79DA;
+$third: #99E2D0;
+$third-dark: #008766;
+
+
+$gradient: linear-gradient(350deg, $primary 7%, $secondary 100%);
+$gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);

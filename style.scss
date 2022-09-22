@@ -1,3 +1,6 @@
+@import "./assets/sass/utils/variables";
+@import "./assets/sass/components/loader";
+
 
 /* Main */
 
@@ -16,6 +19,19 @@ a,
 
 /* Functions */
 
+@function lightness-shift($colour) {
+    @if (lightness($colour) < 25%) {
+        $colour: lighten($colour, 10%);
+    }
+
+    @else {
+        $colour: darken($colour, 10%);
+    }
+
+    @return $colour;
+}
+
+
 
 
 /* Breakpoints */
@@ -27,29 +43,11 @@ a,
     }
 }
 
-
-/* Color */
-
-$darker: #000000;
-$dark: #3c3c3c;
-$medium: #888;
-
-$light: #fff;
-$light-grey: #F6F6F6;
-$grey: #eaeaea;
-
-$primary: #9356DC;
-$primary-light: rgb(147, 86, 220, .2);
-$secondary: #FF79DA;
-$third: #99E2D0;
-
-$gradient: linear-gradient(350deg, $primary 7%, $secondary 100%);
-$gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);
-
-
-/* Mixin */
-
-
+body:before {
+    content: "";
+    display: block;
+    position: absolute;
+}
 
 @mixin flex {
     display: flex;
@@ -88,6 +86,10 @@ $gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);
 @mixin spacing-xsmall {
     margin-top: 4px;
     margin-bottom: 3px;
+}
+
+@mixin padding {
+    padding: .5rem;
 }
 
 @mixin radius-xsmall {
@@ -139,8 +141,9 @@ $gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);
     font-size: 130%;
 }
 
-@mixin color-btn ($colour: lightness-shift($gradient)) {
-    background-color: $gradient;
+@mixin ease {
+    transition: all 400ms;
+    -o-transition-timing-function: ease-in;
 }
 
 
@@ -161,10 +164,88 @@ $gradient-light: linear-gradient(350deg, #a86cf0 10%, $secondary 100%);
 }
 
 
+.card {
+    @include flex-between;
+    @include radius-small;
+    @include ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    position: relative;
+    min-height: 240px;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.20);
+    }
+
+    .card--object {
+        justify-content: flex-start;
+        align-items: flex-end;
+        background-color: $light;
+        border-radius: 0rem 0rem 1rem 1rem;
+    }
+
+    .card--state {
+        @include radius-xsmall;
+        background-color: $third;
+        align-items: center;
+        justify-content: center;
+        align-self: self-end;
+        width: 23%;
+        margin-top: 4%;
+        margin-right: 4%;
+    }
+
+    .card--state>p {
+        @include small;
+        margin: 8px;
+        text-align: center;
+        color: $third-dark;
+    }
+
+    .card--info {
+        flex-direction: row;
+        padding-top: 6%;
+        padding-bottom: 2%;
+        padding-left: 6%;
+
+        .card--info__title {
+            @include bold;
+            justify-content: flex-start;
+            margin: 0
+        }
+
+        .card--info__city {
+            padding-top: 4px;
+            font-size: 110%;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .card--info__icon {
+            @include flex-end;
+            font-size: 100%;
+            position: relative;
+            bottom: 30px;
+            right: 65px;
+        }
+    }
+}
 
 /* Class */
 
-h2, h3, h4:visited{
+h2,
+h3,
+h4:visited {
     color: $darker;
 }
 
@@ -173,7 +254,8 @@ h2 {
     @include title;
 }
 
-h3, h5 {
+h3,
+h5 {
     @include regular;
 }
 
@@ -187,10 +269,16 @@ h3, h5 {
     src: url("assets/font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"),
         url("assets/font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
 }
+html{
+    background: $light;
+}
 
 body {
     margin: auto;
-    background-color: $light-grey;
+}
+
+.light{
+    background: $light;
 }
 
 .spacer {
@@ -246,7 +334,6 @@ body {
     flex-direction: column;
     text-align: center;
     background-color: $light-grey;
-
     .hero--title {
         @include title;
     }
@@ -261,7 +348,7 @@ body {
     .btn--hero {
         @include regular;
         @include radius-large;
-        @include color-btn;
+        @include ease;
         padding: 4px 28px;
         background: $gradient;
         color: $light;
@@ -276,13 +363,13 @@ body {
     .btn--hero__alt {
         @include regular;
         @include radius-large;
-        @include color-btn;
         padding: 4px 48px;
         background: $gradient;
         color: $light;
         box-shadow: 0px 5px 16px rgba(0, 0, 0, .2);
     }
 }
+
 
 .onboarding {
     @include flex-start;
@@ -300,15 +387,16 @@ body {
     .onboarding--card {
         @include flex-start;
         @include radius-small;
-        box-shadow: 0px 8px 26px 0px rgb(0 0 0 / 10%);
+        @include ease;
+        box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 14%);
         width: 100%;
         min-height: 80px;
         margin-bottom: 4%;
 
         &:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 14%);
+            transform: scaleX(1.03) scaleY(1.08);
             background-color: $primary-light;
+            box-shadow: 0px 8px 26px 0px rgb(0 0 0 / 10%);
         }
     }
 
@@ -339,6 +427,7 @@ body {
 .card {
     @include flex-between;
     @include radius-small;
+    @include ease;
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -349,11 +438,11 @@ body {
     margin-left: 1%;
     margin-top: 2%;
     margin-bottom: 5%;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 
     &:hover {
-        transform: scale(1.02);
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+        transform: scale(1.03);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.20);
     }
 
     .card--object {
@@ -369,19 +458,16 @@ body {
         align-items: center;
         justify-content: center;
         align-self: self-end;
-        width: 25%;
+        width: 23%;
         margin-top: 4%;
         margin-right: 4%;
     }
 
     .card--state>p {
         @include small;
+        margin: 8px;
         text-align: center;
-        color: #008766;
-
-        &:hover {
-            font-weight: 700;
-        }
+        color: $third-dark;
     }
 
     .card--info {
@@ -467,10 +553,10 @@ footer {
     }
 
     .header-alt--img {
-        position: relative;
-        height: 40vh;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: auto;
+        height: 40vh;
+        width: 100%;
     }
 
     .header-alt--inline__img {
@@ -484,8 +570,7 @@ footer {
 /*  Entrées  */
 
 section {
-    margin: 0;
-    background-color: $light-grey;
+    @include padding;
 
     .section--title {
         margin-top: 12px;
@@ -539,6 +624,7 @@ section {
 
     .section--item {
         @include flex-between;
+        @include padding;
         flex-direction: column;
 
         .section--item__card {
@@ -551,6 +637,37 @@ section {
             margin-top: 8px;
             box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
             background-color: $light;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .section--item__card:hover>.section--item__info {
+            flex: 100%;
+        }
+
+        .section--item__checked {
+            font-size: 160%;
+            color: $light;
+        }
+
+        .section--item__card:hover>.section--item__checked {
+            @include flex;
+            @include ease;
+            height: 77px;
+            min-width: 77px;
+            flex: 25%;
+            transform: translateX(0px);
+            background-color: $third;
+            border-radius: 0px 10px 10px 0px;
+        }
+        }
+
+        .section--item__card:hover {
+            @include ease;
+            box-sizing: border-box;
+            transform: scale(1.02);
         }
 
         .section--item__info {
@@ -561,6 +678,8 @@ section {
 
         .section--item__info>h3 {
             font-size: 100%;
+            white-space: nowrap;
+            overflow: hidden;
             margin: 0;
             padding-bottom: 6px;
             padding-top: 18px;
@@ -576,7 +695,26 @@ section {
 
         .section--item__price>p {
             font-weight: 500;
-            font-size: 80%;
+            font-size: 90%;
         }
+    }
+
+.slide-up {
+    animation: slide-up 1200ms 600ms;
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(25%);
+        opacity: .0;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0%) ease-out;
     }
 }
