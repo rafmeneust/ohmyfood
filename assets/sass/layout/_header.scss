@@ -1,0 +1,52 @@
+
+.logo {
+    @include flex;
+
+    .logo--img {
+        @include header-spacing;
+        max-width: 220px;
+    }
+}
+
+.locator {
+    @include flex;
+    @include small;
+    background-color: $grey;
+
+    .margin-icon {
+        @include spacing-icon;
+    }
+}
+
+.header-alt {
+    @include flex;
+    flex-direction: column;
+
+    .header-alt--inline {
+        @include flex;
+        flex-direction: row;
+    }
+
+    .header-alt--inline__icon {
+        position: absolute;
+        left: 10%;
+    }
+
+    .header-alt--inline__logo {
+        @include header-spacing;
+        max-width: 190px;
+    }
+
+    .header-alt--img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .header-alt--inline__img {
+        z-index: -1;
+        margin-bottom: -3rem;
+        height: 40vh;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,31 @@
+
+footer {
+    background-color: $dark;
+    color: $light-grey;
+    padding: 4%;
+
+    .footer--logo {
+        max-width: 120px;
+    }
+
+    .footer--infos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: -2rem;
+    }
+
+    .footer--infos>li {
+        @include flex;
+        font-size: 100%;
+        max-height: 28px;
+    }
+
+    .footer--infos>li>h3:hover {
+        font-size: 107%;
+    }
+
+    .footer--infos__icon {
+        padding-right: 18px;
+    }
+}

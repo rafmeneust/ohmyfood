@@ -1,0 +1,32 @@
+
+
+.light{
+    background: $light;
+}
+
+.spacer {
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+
+.spacer-s {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.spacer-l {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.wrapper {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 6%;
+    padding-bottom: 3%;
+    background-color: $light;
+}
+
+.light-grey {
+    background-color: $light-grey;
+}

@@ -1,0 +1,96 @@
+.hero {
+    @include flex;
+    padding: 5% 10%;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    text-align: center;
+    background-color: $light-grey;
+    .hero--title {
+        @include title;
+    }
+
+    .hero--subtitle {
+        @include medium;
+        color: $medium;
+        margin-top: -1rem;
+        margin-bottom: 1rem
+    }
+
+    .btn--hero {
+        @include regular;
+        @include radius-large;
+        @include ease;
+        padding: 4px 28px;
+        background: $gradient;
+        color: $light;
+        box-shadow: 0px 5px 16px rgba(0, 0, 0, .2);
+    }
+
+    .btn--hero:hover {
+        background: $gradient-light;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
+    }
+
+    .btn--hero__alt {
+        @include regular;
+        @include radius-large;
+        padding: 4px 48px;
+        background: $gradient;
+        color: $light;
+        box-shadow: 0px 5px 16px rgba(0, 0, 0, .2);
+    }
+}
+
+
+.onboarding {
+    @include flex-start;
+    padding: 3% 3%;
+    flex-direction: column;
+    max-width: 100% auto;
+    background-color: $light;
+    justify-content: space-between;
+
+    .onboarding--title {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .onboarding--card {
+        @include flex-start;
+        @include radius-small;
+        @include ease;
+        box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 14%);
+        width: 100%;
+        min-height: 80px;
+        margin-bottom: 4%;
+
+        &:hover {
+            transform: scaleX(1.03) scaleY(1.08);
+            background-color: $primary-light;
+            box-shadow: 0px 8px 26px 0px rgb(0 0 0 / 10%);
+        }
+    }
+
+    .onboarding--number {
+        @include regular;
+        @include flex;
+        background-color: $primary;
+        color: $light;
+        border-radius: 100%;
+        margin-right: 22px;
+        width: 33px;
+        height: 30px;
+        position: relative;
+        left: -13px;
+    }
+
+    .onboarding--icon {
+        font-size: 20px;
+        padding-right: 6%;
+        opacity: .8;
+    }
+
+    .onboarding--text {
+        @include regular;
+    }
+}

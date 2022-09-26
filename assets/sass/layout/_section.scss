@@ -1,0 +1,127 @@
+
+section {
+    @include padding;
+
+    .section--title {
+        margin-top: 12px;
+    }
+
+    .section--title__alt {
+        font-family: Shrikhand sans-serif;
+        font-size: 160%;
+    }
+
+    .section--title__light {
+        @include light;
+        margin: 0;
+        border-bottom: solid 3px $third;
+        padding-bottom: 6px;
+        width: 7%;
+    }
+
+    .section--title__subtitle {
+        margin: 0;
+        font-weight: 300;
+        color: $dark;
+        padding-bottom: 18px;
+        line-height: 16px;
+    }
+
+    .section--title__subtitle>p {
+        margin: 0;
+        padding: 0;
+        font-size: 85%;
+        overflow: hidden;
+        max-width: 90%;
+        font-weight: 300;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .section--restaurant-title {
+        @include flex-between;
+        z-index: 6;
+        align-items: center;
+        border-radius: 16px;
+        padding-top: 6px;
+        width: 100%;
+    }
+
+    .section--icon {
+        margin-top: 12px;
+        padding-right: 12%;
+    }
+
+    .section--item {
+        @include flex-between;
+        @include padding;
+        flex-direction: column;
+
+        .section--item__card {
+            @include flex-start;
+            @include radius-xsmall;
+            @include spacing-xsmall;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-top: 8px;
+            box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+            background-color: $light;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .section--item__card:hover>.section--item__info {
+            flex: 100%;
+        }
+
+        .section--item__checked {
+            font-size: 160%;
+            color: $light;
+        }
+
+        .section--item__card:hover>.section--item__checked {
+            @include flex;
+            height: 77px;
+            min-width: 77px;
+            flex: 25%;
+            animation: fade-right 300ms 100ms;
+        }
+        }
+
+        .section--item__card:hover {
+            @include ease;
+            box-sizing: border-box;
+            transform: scale(1.02);
+        }
+
+        .section--item__info {
+            margin: 0;
+            width: 80%;
+            padding-left: 18px;
+        }
+
+        .section--item__info>h3 {
+            font-size: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0;
+            padding-bottom: 6px;
+            padding-top: 18px;
+        }
+
+        .section--item__price {
+            align-self: flex-end;
+            justify-content: end;
+            padding-right: 22px;
+            display: flex;
+            width: 20%;
+        }
+
+        .section--item__price>p {
+            font-weight: 500;
+            font-size: 90%;
+        }
+    }
