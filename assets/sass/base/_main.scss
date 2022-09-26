@@ -22,12 +22,7 @@ a:link {
 a:visited {
     text-decoration: none;
 }
-a:hover {
-    text-decoration: underline;
-}
-a:active {
-    text-decoration: underline;
-}
+
 
 h2,
 h3,
@@ -51,9 +46,10 @@ h5 {
 
 @font-face {
     font-family: Shrikhand sans-serif;
-    src: url("assets/font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"),
-        url("assets/font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
+    src: url("../font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"),
+        url("../font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
 }
+
 
 html{
     background: $light;

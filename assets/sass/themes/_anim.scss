@@ -21,7 +21,6 @@
 
 .fade-right{
     animation: fade-right 300ms 100ms;
-    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
 }
 
 @keyframes fade-right {
