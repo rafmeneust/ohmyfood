@@ -27,14 +27,18 @@
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 a,
 .card {
   cursor: pointer;
+  color: #3c3c3c;
 }
 
 a:link {
   text-decoration: none;
-  color: #3c3c3c;
 }
 
 a:visited {
@@ -76,7 +80,9 @@ section {
   background: #F6F6F6;
 }
 
-body, section, html {
+body,
+section,
+html {
   margin: auto;
 }
 
@@ -508,7 +514,7 @@ footer {
   padding: 4%;
 }
 footer > ul > li > h5 > a {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
 }
 footer .footer--logo {
