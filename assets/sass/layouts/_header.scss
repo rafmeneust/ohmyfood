@@ -19,24 +19,30 @@
 }
 
 .header-alt {
-    @include flex;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
 
     .header-alt--inline {
-        @include flex;
+        display: flex;
+        align-items: center;
         flex-direction: row;
         width: 100%;
         box-shadow: 0px 8px 6px -6px rgb(0 0 0 / 80%);
     }
 
     .header-alt--inline__icon {
-        position: absolute;
-        left: 10%;
+        flex: 1;
+        font-size: 70%;
+        color: $dark;
     }
 
     .header-alt--inline__logo {
         @include header-spacing;
         max-width: 190px;
+    }
+    .header-alt--inline__space{
+        flex: 1;
     }
 
     .header-alt--img {
@@ -51,6 +57,8 @@
         overflow: hidden;
     }
 }
+
+
 
 .fill:hover{
     animation: fill 300ms;
