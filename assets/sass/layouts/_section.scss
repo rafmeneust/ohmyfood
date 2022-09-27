@@ -1,13 +1,13 @@
 
 section {
-    @include padding;
-
     .section--title {
         margin-top: 12px;
+        padding-left: 1rem;
     }
 
     .section--title__alt {
-        font-family: Shrikhand sans-serif;
+        font-family: Shrikhand serif;
+        letter-spacing: 1px;
         font-size: 160%;
     }
 
@@ -42,9 +42,6 @@ section {
         @include flex-between;
         z-index: 6;
         align-items: center;
-        border-radius: 16px;
-        padding-top: 6px;
-        width: 100%;
     }
 
     .section--icon {
@@ -80,14 +77,19 @@ section {
         .section--item__checked {
             font-size: 160%;
             color: $light;
+            &:hover>i{
+                animation: rotate-icon 300ms;
+            }
         }
 
         .section--item__card:hover>.section--item__checked {
             @include flex;
             height: 77px;
+            border-radius: 0px 10px 10px 0px;
             min-width: 77px;
             flex: 25%;
-            animation: fade-right 300ms 100ms;
+            background: $third;
+            animation: fade-right 300ms;
         }
         }
 
@@ -125,3 +127,9 @@ section {
             font-size: 90%;
         }
     }
+
+    .section--border{
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        background-color: $light-grey;
+        }
