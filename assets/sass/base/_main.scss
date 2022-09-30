@@ -1,7 +1,90 @@
-@media screen and (min-width: 468px) {
+@media screen and (min-width: 1000px){
+    .onboarding{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    .onboarding--card{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    #restaurant-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    #restaurant-section .card{
+        min-width: 480px;
+    }
+    .wrapper--title>h2{
+        font-size: 170%;
+    }
+    .hero--title>h1{
+        font-size: 180%;
+    }
+    .btn--hero{
+        margin-bottom: 3rem;
+    }
+    .header-alt--inline__img{
+        margin-bottom: -1.5rem;
+    }
+    .section--item{
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+    .section--border{
+        padding-top: 1rem;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+    .footer--infos{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) and (min-width:600px) {
     body {
-        max-width: 499px;
+        max-width: 100%;
         margin: auto;
+    }
+    #restaurant-section a{
+        text-align: -webkit-center;
+    }
+    .card--info__title, .card--info__city{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .section--border{
+        padding-top: 1rem;
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+    .onboarding{
+        display: flex;
+        flex-direction: column;
+        &--card{
+            max-width: 500px;
+        }
+    }
+    .wrapper--title{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .card{
+        flex: 2;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .onboarding{
+        display: flex;
+        flex-direction: column;
     }
 }
 

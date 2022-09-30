@@ -1,11 +1,12 @@
 .slide-up {
+    overflow: hidden;
     animation: slide-up 1200ms;
     transition-timing-function: cubic-bezier(.42, 0, .58, 1);
 }
 
 @keyframes slide-up {
     0% {
-        transform: translateY(25%);
+        transform: transformY(25%);
         opacity: 0;
     }
 
@@ -14,24 +15,29 @@
     }
 
     100% {
-        transform: translateY(0%);
+        transform: transformY(0%);
     }
 }
 
 .fade-right::after {
-    animation: fade-right 600ms;
+    animation: fade-right 400ms;
+    animation-fill-mode:backwards;
+    overflow: hidden;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     transition-timing-function: cubic-bezier(.42, 0, .58, 1);
 }
 
 @keyframes fade-right {
     0% {
-        transform: translateX(20%);
+        transform: translateX(40%);
         opacity: 0;
     }
 
     100% {
-        transform: translateX(0%);
         opacity: 1;
+        transform: translateX(0%);
     }
 }
 

@@ -5,7 +5,7 @@
     height: 100%;
     z-index: 10;
     background-color: $light-grey;
-    animation: hideLoader 600ms 1 forwards;
+    animation: hideLoader 1000ms 1 forwards;
     animation-delay: 600ms;
 }
 

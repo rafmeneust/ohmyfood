@@ -1,16 +1,12 @@
 
-
 .card {
     @include flex-between;
     @include radius-small;
     @include ease;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
-    position: relative;
     min-height: 240px;
     margin-right: 1%;
     margin-left: 1%;

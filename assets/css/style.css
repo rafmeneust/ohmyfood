@@ -14,10 +14,90 @@
   background: url("../img/delice-sens.jpg");
 }
 
-@media screen and (min-width: 468px) {
+@media screen and (min-width: 1000px) {
+  .onboarding {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .onboarding--card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  #restaurant-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #restaurant-section .card {
+    min-width: 480px;
+  }
+  .wrapper--title > h2 {
+    font-size: 170%;
+  }
+  .hero--title > h1 {
+    font-size: 180%;
+  }
+  .btn--hero {
+    margin-bottom: 3rem;
+  }
+  .header-alt--inline__img {
+    margin-bottom: -1.5rem;
+  }
+  .section--item {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  .section--border {
+    padding-top: 1rem;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .footer--infos {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 600px) {
   body {
-    max-width: 499px;
+    max-width: 100%;
     margin: auto;
+  }
+  #restaurant-section a {
+    text-align: -webkit-center;
+  }
+  .card--info__title, .card--info__city {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .section--border {
+    padding-top: 1rem;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .onboarding {
+    display: flex;
+    flex-direction: column;
+  }
+  .onboarding--card {
+    max-width: 500px;
+  }
+  .wrapper--title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .card {
+    flex: 2;
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .onboarding {
+    display: flex;
+    flex-direction: column;
   }
 }
 * {
@@ -94,7 +174,7 @@ html {
   height: 100%;
   z-index: 10;
   background-color: #F6F6F6;
-  animation: hideLoader 600ms 1 forwards;
+  animation: hideLoader 1000ms 1 forwards;
   animation-delay: 600ms;
 }
 
@@ -132,13 +212,10 @@ html {
   border-radius: 16px;
   transition: all 400ms;
   -o-transition-timing-function: ease-in;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   flex-direction: column;
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
-  position: relative;
   min-height: 240px;
   margin-right: 1%;
   margin-left: 1%;
@@ -256,8 +333,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 3% 3%;
-  flex-direction: column;
   max-width: 100%;
   background-color: #fff;
   justify-content: space-between;
@@ -353,6 +428,25 @@ section .section--icon {
   margin-top: 12px;
   padding-right: 12%;
 }
+section .section--icon__nofill {
+  opacity: 1;
+  position: relative;
+  left: 40px;
+}
+section .section--icon__nofill:hover {
+  opacity: 0;
+}
+section .section--icon__fill {
+  opacity: 0;
+  transition: 150ms ease-out;
+}
+section .section--icon__fill:hover {
+  opacity: 1;
+  background-clip: text;
+  background: -webkit-linear-gradient(350deg, #9356DC 7%, #FF79DA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 section .section--item {
   display: flex;
   justify-content: space-between;
@@ -367,6 +461,7 @@ section .section--item .section--item__card {
   margin-top: 4px;
   margin-bottom: 3px;
   align-items: center;
+  transform: scale(0.99);
   width: 100%;
   height: 100%;
   margin-top: 8px;
@@ -382,9 +477,14 @@ section .section--item .section--item__card:hover > .section--item__info {
 section .section--item .section--item__checked {
   font-size: 160%;
   color: #fff;
+  flex: 0%;
+  word-wrap: nowrap;
 }
 section .section--item .section--item__checked:hover > i {
   animation: rotate-icon 300ms;
+}
+section .section--item .section--item__checked a::after {
+  background-color: #008766;
 }
 section .section--item .section--item__card:hover > .section--item__checked {
   display: flex;
@@ -393,15 +493,15 @@ section .section--item .section--item__card:hover > .section--item__checked {
   height: 77px;
   border-radius: 0px 10px 10px 0px;
   min-width: 77px;
-  flex: 25%;
+  flex: 35%;
   background: #99E2D0;
-  animation: fade-right 300ms;
+  animation: fade-right 400ms;
 }
 section .section--item__card:hover {
-  transition: all 400ms;
-  -o-transition-timing-function: ease-in;
+  transition: ease-out 300ms;
+  -o-transition-timing-function: ease-out;
   box-sizing: border-box;
-  transform: scale(1.02);
+  transform: scale(1);
 }
 section .section--item__info {
   margin: 0;
@@ -471,6 +571,8 @@ section .section--item__price > p {
 }
 .header-alt .header-alt--inline__icon {
   flex: 1;
+  padding-left: 2rem;
+  padding-top: 12px;
   font-size: 70%;
   color: #3c3c3c;
 }
@@ -494,21 +596,9 @@ section .section--item__price > p {
   overflow: hidden;
 }
 
-.fill:hover {
-  animation: fill 300ms;
-  color: linear-gradient(350deg, #9356DC 7%, #FF79DA 100%);
-}
-
-@keyframes fill {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    color: linear-gradient(350deg, #9356DC 7%, #FF79DA 100%);
-  }
-}
 footer {
+  display: flex;
+  flex-direction: column;
   background-color: #3c3c3c;
   color: #F6F6F6;
   padding: 4%;
@@ -572,35 +662,41 @@ footer .footer--infos__icon {
 }
 
 .slide-up {
+  overflow: hidden;
   animation: slide-up 1200ms;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 @keyframes slide-up {
   0% {
-    transform: translateY(25%);
+    transform: transformY(25%);
     opacity: 0;
   }
   85% {
     opacity: 1;
   }
   100% {
-    transform: translateY(0%);
+    transform: transformY(0%);
   }
 }
 .fade-right::after {
-  animation: fade-right 600ms;
+  animation: fade-right 400ms;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 @keyframes fade-right {
   0% {
-    transform: translateX(20%);
+    transform: translateX(40%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0%);
     opacity: 1;
+    transform: translateX(0%);
   }
 }
 @keyframes rotate-icon {

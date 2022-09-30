@@ -47,6 +47,25 @@ section {
         margin-top: 12px;
         padding-right: 12%;
     }
+    .section--icon__nofill{
+        opacity: 1;
+        position: relative;
+        left: 40px;
+    }
+    .section--icon__nofill:hover{
+        opacity: 0;
+    }
+    .section--icon__fill{
+        opacity: 0;
+        transition: 150ms ease-out ;
+    }
+    .section--icon__fill:hover{
+        opacity: 1;
+        background-clip: text;
+        background: -webkit-linear-gradient(350deg, $primary 7%, $secondary 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
     .section--item {
         @include flex-between;
@@ -58,6 +77,7 @@ section {
             @include radius-xsmall;
             @include spacing-xsmall;
             align-items: center;
+            transform: scale(0.99);
             width: 100%;
             height: 100%;
             margin-top: 8px;
@@ -76,9 +96,13 @@ section {
         .section--item__checked {
             font-size: 160%;
             color: $light;
-
+            flex: 0%;
+            word-wrap: nowrap;
             &:hover>i {
                 animation: rotate-icon 300ms;
+            }
+            a::after{
+                background-color: $third-dark;
             }
         }
 
@@ -87,16 +111,17 @@ section {
             height: 77px;
             border-radius: 0px 10px 10px 0px;
             min-width: 77px;
-            flex: 25%;
+            flex: 35%;
             background: $third;
-            animation: fade-right 300ms;
+            animation: fade-right 400ms;
         }
+        
     }
 
     .section--item__card:hover {
-        @include ease;
+        @include ease-out;
         box-sizing: border-box;
-        transform: scale(1.02);
+        transform: scale(1.0);
     }
 
     .section--item__info {

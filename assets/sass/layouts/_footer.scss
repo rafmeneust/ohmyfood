@@ -1,4 +1,6 @@
 footer {
+    display: flex;
+    flex-direction: column;
     background-color: $dark;
     color: $light-grey;
     padding: 4%;
@@ -14,7 +16,7 @@ footer {
 
     .footer--infos {
         display: flex;
-        flex-direction: column;
+        flex-direction:column;
         align-items: flex-start;
         margin-left: -2rem;
     }

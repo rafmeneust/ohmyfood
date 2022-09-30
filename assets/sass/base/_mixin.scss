@@ -95,3 +95,8 @@
     transition: all 400ms;
     -o-transition-timing-function: ease-in;
 }
+
+@mixin ease-out {
+    transition: ease-out 300ms;
+    -o-transition-timing-function: ease-out;
+}
