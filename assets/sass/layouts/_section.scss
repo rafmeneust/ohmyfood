@@ -47,24 +47,40 @@ section {
         margin-top: 12px;
         padding-right: 12%;
     }
-    .section--icon__nofill{
-        opacity: 1;
-        position: relative;
-        left: 40px;
+
+    $color-primary: #9356DC;
+    $color-secondary: #FF79DA;
+
+    @keyframes fade-in{
+    from{
+        opacity:0;
     }
-    .section--icon__nofill:hover{
+    to{
+        opacity:1;
+    }
+    }
+
+    .fa-heart:hover{
+    animation: heart 1s ease-in-out;
+    font-weight: bold;
+    background: linear-gradient(to bottom, $color-primary,$color-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    }
+
+    @keyframes heart {
+    0% {
         opacity: 0;
     }
-    .section--icon__fill{
-        opacity: 0;
-        transition: 150ms ease-out ;
+    33%{
+        opacity: 0.30;
     }
-    .section--icon__fill:hover{
+    66%{
+        opacity: 0.60;
+    } 
+    100%{
         opacity: 1;
-        background-clip: text;
-        background: -webkit-linear-gradient(350deg, $primary 7%, $secondary 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    }
     }
 
     .section--item {
@@ -109,19 +125,19 @@ section {
         .section--item__card:hover>.section--item__checked {
             @include flex;
             height: 77px;
+            flex: 100%;
+            max-width: 160px;
             border-radius: 0px 10px 10px 0px;
-            min-width: 77px;
-            flex: 35%;
             background: $third;
-            animation: fade-right 400ms;
+            animation: fade-right 600ms ease-out;
         }
-        
     }
 
     .section--item__card:hover {
         @include ease-out;
         box-sizing: border-box;
         transform: scale(1.0);
+
     }
 
     .section--item__info {

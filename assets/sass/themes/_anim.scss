@@ -10,34 +10,34 @@
         opacity: 0;
     }
 
-    85% {
+    70% {
         opacity: 1;
     }
 
     100% {
+        
         transform: transformY(0%);
     }
 }
 
-.fade-right::after {
-    animation: fade-right 400ms;
+.fade-right {
     animation-fill-mode:backwards;
     overflow: hidden;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
 }
 
 @keyframes fade-right {
     0% {
-        transform: translateX(40%);
+        flex: 0%;
         opacity: 0;
     }
-
-    100% {
+    40%{
         opacity: 1;
-        transform: translateX(0%);
+    }
+    100% {
+        flex: 100%;
     }
 }
 

@@ -40,8 +40,13 @@
         padding-left: 8%;
         padding-right: 8%;
     }
-    .footer--infos{
-        width: 100%;
+
+    footer ul.footer--infos{
+        flex-direction: row;
+    }
+    footer ul.footer--infos > li {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -78,6 +83,14 @@
     .card{
         flex: 2;
         max-width: 500px;
+    }
+
+    footer ul.footer--infos{
+        flex-direction: row;
+    }
+    footer ul.footer--infos > li {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -144,6 +157,7 @@ h5 {
 
 html {
     background: $light;
+    scroll-behavior: smooth;
 }
 
 section {
@@ -154,4 +168,5 @@ body,
 section,
 html {
     margin: auto;
+    z-index: -1;
 }
