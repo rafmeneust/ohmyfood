@@ -451,33 +451,43 @@ section .section--icon {
   margin-top: 12px;
   padding-right: 12%;
 }
-section .section--icon__nofill::before {
-  opacity: 1;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+section .fa-stack {
+  display: inline-block;
+  height: 1em;
+  line-height: 2em;
   position: relative;
-  left: 40px;
+  vertical-align: middle;
+  width: 2.5em;
+  bottom: 10px;
+  left: 20px;
 }
-section .section--icon__nofill:hover {
-  opacity: 0;
-  display: none;
+section .fa-heart:hover {
+  animation: heart 100ms ease-in;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-section .section--icon__fill {
-  opacity: 1;
-}
-section .section--icon__fill:hover {
-  opacity: 1;
-  animation: fill;
-}
-@keyframes fill {
+@keyframes heart {
   0% {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    opacity: 0;
+  }
+  33% {
+    opacity: 0.3;
+  }
+  66% {
+    opacity: 0.6;
   }
   100% {
-    background: -webkit-linear-gradient(350deg, #9356DC 7%, #FF79DA 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    opacity: 1;
   }
 }
 section .section--item {

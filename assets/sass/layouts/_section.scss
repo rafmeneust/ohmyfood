@@ -48,9 +48,6 @@ section {
         padding-right: 12%;
     }
 
-    $color-primary: #9356DC;
-    $color-secondary: #FF79DA;
-
     @keyframes fade-in{
     from{
         opacity:0;
@@ -59,11 +56,21 @@ section {
         opacity:1;
     }
     }
+    .fa-stack {
+        display: inline-block;
+        height: 1em;
+        line-height: 2em;
+        position: relative;
+        vertical-align: middle;
+        width: 2.5em;
+        bottom: 10px;
+        left: 20px;
+    }
 
     .fa-heart:hover{
-    animation: heart 1s ease-in-out;
+    animation: heart 100ms ease-in;
     font-weight: bold;
-    background: linear-gradient(to bottom, $color-primary,$color-secondary);
+    background: linear-gradient(to bottom, $primary,$secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color:transparent;
     }
@@ -81,7 +88,7 @@ section {
     100%{
         opacity: 1;
     }
-    }
+}
 
     .section--item {
         @include flex-between;
