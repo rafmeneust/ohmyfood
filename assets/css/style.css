@@ -45,12 +45,6 @@
   .header-alt--inline__img {
     margin-bottom: -1.5rem;
   }
-  .section--item {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-  }
   .section--border {
     padding-top: 1rem;
     padding-left: 8%;
@@ -118,6 +112,13 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: Roboto sans-serif;
+}
+@font-face {
+  font-family: Shrikhand serif;
+  src: url("../font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"), url("../font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
+}
 a {
   text-decoration: none;
 }
@@ -156,13 +157,6 @@ h5 {
   font-weight: 500;
 }
 
-@font-face {
-  font-family: Roboto sans-serif;
-}
-@font-face {
-  font-family: Shrikhand serif;
-  src: url("../font/shrikhand/shrikhand-v11-latin-regular.woff2") format("woff2"), url("../font/shrikhand/shrikhand-v11-latin-regular.ttf") format("truetype");
-}
 html {
   background: #fff;
   scroll-behavior: smooth;
@@ -705,14 +699,14 @@ footer .footer--infos__icon {
 }
 
 .slide-up {
+  animation: slide-up 1000ms;
+  animation-fill-mode: backwards;
   overflow: hidden;
-  animation: slide-up 1200ms;
-  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 @keyframes slide-up {
   0% {
-    transform: transformY(25%);
+    transform: transformY(50%);
     opacity: 0;
   }
   70% {
