@@ -94,6 +94,7 @@ section {
         @include flex-between;
         @include padding;
         flex-direction: column;
+        overflow: hidden;
 
         .section--item__card {
             @include flex-start;
@@ -106,7 +107,6 @@ section {
             margin-top: 8px;
             box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
             background-color: $light;
-
             &:hover {
                 cursor: pointer;
             }
@@ -117,17 +117,24 @@ section {
         }
 
         .section--item__checked {
-            font-size: 160%;
             color: $light;
-            flex: 0%;
-            word-wrap: nowrap;
-            &:hover>i {
-                animation: rotate-icon 300ms;
+            background-color: $light;
+            &::after{
+                content: '\f00c';
+                font-family: 'FontAwesome';
+                padding:6px;
+                transform: rotate(0deg);
+                border-radius: 50%;
+                background-color: $light;
+                color: $third;
+                font-size: 16px;
+                transition: transform 0.4s ease-in-out;
             }
-            a::after{
-                background-color: $third-dark;
+            .section--item__checked:hover,
+            .section--item__checked:focus{
+                animation: rotate-icon 1s ease-out;
             }
-        }
+    }
 
         .section--item__card:hover>.section--item__checked {
             @include flex;

@@ -1,49 +1,75 @@
-
-.loader {
-    @include flex;
+.loader{
+    position: fixed;
     z-index: 10;
-    animation: hideLoader 1000ms 1 forwards;
-    animation-delay: 600ms;
-}
-.loader::before{
+    width: 100%;
+    height: 100vh;
+    pointer-events:none;
+    background-color: $light;
+    @include flex;
+    animation: visibility 1.5s ease forwards;
+
+    .loader--text{
+    @include flex;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    font-size: 22px;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    color: $dark;
+    animation: text 0.6s linear infinite;
+    }
+
+    .loader--ring{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    &::after{
+    content: '';
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    height: 200vh;
-    background: $light;
-    opacity: 1;
-    content: "";
-    z-index: 0;
-}
-
-.loader::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    border: $light-grey solid 5px;
-    border-top-color: $primary;
-    border-bottom-color: $primary;
+    bottom: 0;
+    right: 0;
     border-radius: 50%;
-    animation: spin 1400ms linear infinite;
+    border: 10px solid transparent;
+    animation: rotate 1s linear infinite;
+    }
+        }
 }
 
-@keyframes hideLoader {
-    100% {
-        opacity: 0;
-        display: none;
-        visibility: hidden;
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+        border-top-color: $primary;
+        border-bottom-color: $primary-light;
+    }
+    50%{
+        transform: rotate(180deg);
+        border-top-color: $secondary;
+        border-bottom-color: $secondary;
+    }
+    100%{
+        transform: rotate(360deg);
+        border-top-color: $primary;
+        border-bottom-color: $primary-light;
     }
 }
 
-@keyframes spin {
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+
+@keyframes visibility {
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes text {
+    to{
+        opacity: 0;
     }
 }

@@ -1,24 +1,3 @@
-.slide-up {
-    animation: slide-up 1000ms;
-    animation-fill-mode:backwards;
-    overflow: hidden;
-}
-
-@keyframes slide-up {
-    0% {
-        transform: transformY(50%);
-        opacity: 0;
-    }
-
-    70% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: transformY(0%);
-    }
-}
-
 .fade-right {
     animation-fill-mode:backwards;
     overflow: hidden;
@@ -49,5 +28,50 @@
 
     100% {
         transform: rotate(0deg);
+    }
+}
+
+.slide-up-title{
+    animation: slide-up 600ms ease;
+}
+
+.slide-up-card{
+    animation: slide-up 800ms ease-out;
+}
+
+.delay{
+    animation-delay: 600ms;
+    animation-fill-mode: backwards;
+}
+
+.delay-alt{
+    animation-delay: 600ms;
+    animation-fill-mode:both;
+}
+
+@keyframes delay{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@keyframes slide-up{
+
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    60%{
+        opacity: .1;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
